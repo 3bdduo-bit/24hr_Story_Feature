@@ -1,0 +1,221 @@
+.sv-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+  animation: fadeIn 0.25s ease;
+}
+
+.sv-container {
+  position: relative;
+  width: min(420px, 100vw);
+  height: min(780px, 100dvh);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d0d15;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.06);
+  animation: scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .sv-container {
+    border-radius: 0;
+    width: 100vw;
+    height: 100dvh;
+  }
+}
+
+/* Progress bars */
+.sv-progress-bars {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  z-index: 10;
+}
+
+.sv-progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sv-progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width 0.05s linear;
+}
+
+/* Header */
+.sv-header {
+  position: absolute;
+  top: 28px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.sv-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sv-avatar-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+}
+
+.sv-avatar-inner {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #0d0d15;
+}
+
+.sv-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sv-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sv-username {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.sv-time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.sv-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sv-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.sv-btn:hover { background: rgba(255,255,255,0.22); transform: scale(1.1); }
+.sv-delete:hover { background: rgba(239,68,68,0.5); }
+
+/* Image */
+.sv-image-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.sv-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.sv-caption {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  line-height: 1.5;
+}
+
+/* Nav arrows */
+.sv-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 80px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
+}
+.sv-nav:hover { background: rgba(255,255,255,0.2); transform: translateY(-50%) scale(1.05); }
+.sv-nav-left { left: 10px; }
+.sv-nav-right { right: 10px; }
+
+/* Counter */
+.sv-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
+}
