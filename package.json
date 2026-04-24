@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://3bdduo-bit.github.io/Test-deployment",
+  "homepage": "https://3bdduo-bit.github.io/24hr_Story_Feature",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.5",
