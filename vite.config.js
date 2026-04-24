@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/Test-deployment/",
+  base: "/24hr_Story_Feature/",
   plugins: [
     react({
       babel: {

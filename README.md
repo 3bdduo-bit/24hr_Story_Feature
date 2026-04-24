@@ -1,3 +1,12 @@
+# 📸 FlashStories — 24hr Story Feature
+
+Share ephemeral moments that disappear after 24 hours.
+
+### 🚀 Live Demo
+**[View Project Live](https://3bdduo-bit.github.io/24hr_Story_Feature/)**
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
