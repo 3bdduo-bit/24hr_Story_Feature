@@ -12,8 +12,9 @@ export default function StoryViewer({ stories, startIndex = 0, onClose, onDelete
   const [dragX, setDragX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const intervalRef = useRef(null);
-  const startTimeRef = useRef(Date.now());
+  const startTimeRef = useRef(0);
   const pausedAtRef = useRef(0);
+  const elapsedRef = useRef(0);
 
   const story = stories[current];
 
@@ -41,24 +42,19 @@ export default function StoryViewer({ stories, startIndex = 0, onClose, onDelete
     }
   }, [current]);
 
-  // Timer
-  useEffect(() => {
-    setElapsed(0);
-    startTimeRef.current = Date.now();
-    pausedAtRef.current = 0;
-    setPaused(false);
-  }, [current]);
+
 
   useEffect(() => {
     if (paused) {
       clearInterval(intervalRef.current);
-      pausedAtRef.current = elapsed;
+      pausedAtRef.current = elapsedRef.current;
       return;
     }
     startTimeRef.current = Date.now() - pausedAtRef.current;
     intervalRef.current = setInterval(() => {
       const e = Date.now() - startTimeRef.current;
       setElapsed(e);
+      elapsedRef.current = e;
       if (e >= STORY_DURATION) goNext();
     }, 50);
     return () => clearInterval(intervalRef.current);
